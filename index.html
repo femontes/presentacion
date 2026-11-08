@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Alto Impacto</title>
+    <!-- Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Fuentes de Google: Montserrat para títulos (impacto) y Open Sans para lectura -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        .title-font { font-family: 'Montserrat', sans-serif; }
+        
+        /* Animaciones y transiciones de las diapositivas */
+        .slide { 
+            display: none; 
+            opacity: 0; 
+            transform: scale(0.98) translateY(10px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slide.active { 
+            display: flex; 
+            opacity: 1; 
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Degradados para mejor lectura sobre imágenes */
+        .gradient-overlay {
+            background: linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.3) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-50 h-screen w-screen overflow-hidden flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- Barra de Progreso en la parte superior -->
+    <div class="fixed top-0 left-0 h-2 bg-gradient-to-r from-red-600 to-amber-500 z-50 transition-all duration-300 ease-out" id="progress-bar" style="width: 0%"></div>
+
+    <!-- Contenedor Principal de Diapositivas -->
+    <main id="slider" class="relative w-full h-full flex-1">
+        
+        <!-- DIAPOSITIVA 1: Portada -->
+        <section class="slide active absolute inset-0 flex-col items-center justify-center text-center p-8 bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-slate-900/60 z-10"></div>
+                <!-- Contenedor de carga IA -->
+                <div id="loader-img-portada" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0 opacity-80">
+                    <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-4xl text-amber-500 mb-4"></i>
+                    <span class="text-slate-300 font-medium">IA Generando Fondo...</span>
+                </div>
+                <img id="img-portada" class="w-full h-full object-cover z-0 opacity-80 hidden" alt="Fondo Solemne Cruz">
+            </div>
+            
+            <div class="z-10 max-w-6xl">
+                <div class="inline-block p-5 bg-red-900/60 rounded-full mb-8 backdrop-blur-md border border-red-500/50 shadow-2xl">
+                    <i class="fa-solid fa-hands-praying text-6xl text-amber-500"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight title-font tracking-tight text-white drop-shadow-lg">
+                    Estructura de Oración por <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400">La Iglesia Perseguida</span>
+                </h1>
+                <p class="text-3xl md:text-5xl text-slate-100 font-medium mb-12 leading-relaxed max-w-5xl mx-auto drop-shadow-md">
+                    Análisis de las 8 categorías principales de presión y hostilidad en África y Medio Oriente.
+                </p>
+                
+                <div class="animate-pulse mt-8 text-slate-300 text-2xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                    <span>Usa las flechas para avanzar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 2: Países y Resumen -->
+        <section class="slide absolute inset-0 flex-col justify-center p-12 md:p-24 bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-slate-900/70 z-10"></div>
+                <!-- Contenedor de carga IA -->
+                <div id="loader-img-panorama" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0 opacity-80">
+                    <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-4xl text-amber-500 mb-4"></i>
+                    <span class="text-slate-300 font-medium">IA Generando Mapa...</span>
+                </div>
+                <img id="img-panorama" class="w-full h-full object-cover z-0 opacity-70 hidden" alt="Fondo Global Desierto">
+            </div>
+            <div class="max-w-7xl mx-auto w-full z-10">
+                <h2 class="text-5xl md:text-6xl font-bold mb-16 title-font border-l-8 border-amber-500 pl-8 text-white drop-shadow-lg">Panorama de Riesgo</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-900/80 p-12 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-sm">
+                        <i class="fa-solid fa-earth-africa text-6xl text-amber-500 mb-6"></i>
+                        <h3 class="text-5xl font-bold mb-6 title-font text-white">7 Países en Foco</h3>
+                        <p class="text-4xl text-slate-200 leading-relaxed font-light mt-4">
+                            Arabia Saudita, Jordania, Líbano, Nigeria, Sahara Occidental, Yibuti y Sierra Leona.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/80 p-12 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-sm">
+                        <i class="fa-solid fa-chart-pie text-6xl text-red-500 mb-6"></i>
+                        <h3 class="text-5xl font-bold mb-6 title-font text-white">8 Áreas Críticas</h3>
+                        <p class="text-4xl text-slate-200 leading-relaxed font-light mt-4">
+                            Desde el rechazo familiar hasta el terrorismo extremo y castigos legales estatales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 3: Categoría 1 -->
+        <section class="slide absolute inset-0 flex bg-slate-900">
+            <div class="absolute inset-0 w-full h-full z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent z-10 w-full md:w-3/4"></div>
+                <!-- Contenedor de carga IA -->
+                <div id="loader-img-cat1" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0 opacity-80">
+                    <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-4xl text-amber-500 mb-4"></i>
+                    <span class="text-slate-300 font-medium">IA Generando Imagen...</span>
+                </div>
+                <img id="img-cat1" class="w-full h-full object-cover object-right opacity-90 hidden" alt="Sombras y aislamiento familiar">
+            </div>
+            
+            <div class="w-full md:w-2/3 flex flex-col justify-center p-12 md:p-24 z-10 h-full">
+                <div class="max-w-4xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                        <span class="text-2xl text-amber-400 uppercase tracking-widest font-bold drop-shadow-md">Categoría 01</span>
+                    </div>
+                    <h2 class="text-6xl md:text-7xl font-bold mb-10 title-font leading-tight text-white drop-shadow-lg">Opresión<br>Familiar</h2>
+                    
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-6 bg-slate-900/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700/50">
+                            <i class="fa-solid fa-triangle-exclamation text-5xl text-red-500 mt-2 drop-shadow-md"></i>
+                            <p class="text-4xl font-medium text-slate-100 leading-normal drop-shadow-md">Riesgo de homicidio por la propia familia (Arabia Saudita).</p>
+                        </li>
+                        <li class="flex items-start gap-6 bg-slate-900/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700/50">
+                            <i class="fa-solid fa-house-chimney-crack text-5xl text-red-500 mt-2 drop-shadow-md"></i>
+                            <p class="text-4xl font-medium text-slate-100 leading-normal drop-shadow-md">Pérdida de vivienda, custodia y rechazo comunitario violento.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 4: Categoría 2 y 3 -->
+        <section class="slide absolute inset-0 flex-col justify-center p-12 md:p-24 bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-slate-900/75 z-10"></div>
+                <div class="w-full h-full bg-slate-800 z-0 opacity-80"></div>
+            </div>
+            <div class="max-w-7xl mx-auto w-full z-10">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-2xl text-amber-400 uppercase tracking-widest font-bold drop-shadow-md">Categorías 02 y 03</span>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-bold mb-12 title-font text-white drop-shadow-lg">Estado y Palabra</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-slate-900/80 rounded-3xl border border-red-800 backdrop-blur-md overflow-hidden shadow-2xl">
+                        <div class="relative w-full h-64">
+                            <div id="loader-img-iglesia" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0">
+                                <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-3xl text-amber-500 mb-2"></i>
+                                <span class="text-slate-300 font-medium text-sm">IA Generando...</span>
+                            </div>
+                            <img id="img-iglesia" class="w-full h-full object-cover opacity-90 hidden" alt="Iglesia Cerrada y Candado">
+                        </div>
+                        <div class="p-10">
+                            <i class="fa-solid fa-place-of-worship text-5xl text-amber-500 mb-6 drop-shadow-md"></i>
+                            <h3 class="text-5xl font-bold mb-4 title-font text-white">Bloqueo a Iglesias</h3>
+                            <p class="text-4xl leading-relaxed text-slate-200 font-medium">Prohibiciones absolutas, negación de licencias y operaciones reducidas a parroquias coloniales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-900/80 rounded-3xl border border-red-800 backdrop-blur-md overflow-hidden shadow-2xl">
+                        <div class="relative w-full h-64">
+                            <div id="loader-img-biblia" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0">
+                                <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-3xl text-amber-500 mb-2"></i>
+                                <span class="text-slate-300 font-medium text-sm">IA Generando...</span>
+                            </div>
+                            <img id="img-biblia" class="w-full h-full object-cover opacity-90 hidden" alt="Biblia Oculta">
+                        </div>
+                        <div class="p-10">
+                            <i class="fa-solid fa-book-bible text-5xl text-amber-500 mb-6 drop-shadow-md"></i>
+                            <h3 class="text-5xl font-bold mb-4 title-font text-white">Censura de la Biblia</h3>
+                            <p class="text-4xl leading-relaxed text-slate-200 font-medium">Distribución ilegal, uso clandestino de tarjetas SD y destrucción física de ejemplares.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 5: Categoría 4 y 5 -->
+        <section class="slide absolute inset-0 flex-col justify-center p-12 md:p-24 bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-slate-900/70 z-10"></div>
+                <div class="w-full h-full bg-slate-800 z-0 opacity-80"></div>
+            </div>
+            <div class="max-w-7xl mx-auto w-full z-10 text-center mt-8">
+                <span class="text-2xl text-amber-400 uppercase tracking-widest font-bold block mb-4 drop-shadow-md">Categorías 04 y 05</span>
+                <h2 class="text-5xl md:text-7xl font-bold mb-16 title-font text-white drop-shadow-lg">Refugio y Terrorismo</h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 text-left">
+                    <div class="flex-1 border-l-8 border-amber-500 bg-slate-900/90 rounded-r-3xl overflow-hidden shadow-2xl backdrop-blur-md">
+                        <div class="relative w-full h-56">
+                            <div id="loader-img-refugio" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0">
+                                <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-3xl text-amber-500 mb-2"></i>
+                                <span class="text-slate-300 font-medium text-sm">IA Generando...</span>
+                            </div>
+                            <img id="img-refugio" class="w-full h-full object-cover opacity-90 hidden" alt="Refugiados">
+                        </div>
+                        <div class="p-10">
+                            <h4 class="text-5xl font-bold text-white mb-6"><i class="fa-solid fa-campground mr-4 text-amber-400"></i>Desplazados</h4>
+                            <p class="text-4xl leading-relaxed text-slate-200 font-medium">Atención a millones de refugiados sirios (Jordania/Líbano) y decenas de miles hacinados huyendo del terror en Nigeria.</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 border-l-8 border-red-600 bg-slate-900/90 rounded-r-3xl overflow-hidden shadow-2xl backdrop-blur-md">
+                        <div class="relative w-full h-56">
+                            <div id="loader-img-ruinas" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0">
+                                <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-3xl text-red-500 mb-2"></i>
+                                <span class="text-slate-300 font-medium text-sm">IA Generando...</span>
+                            </div>
+                            <img id="img-ruinas" class="w-full h-full object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-500 hidden" alt="Conflicto y Extremismo">
+                        </div>
+                        <div class="p-10">
+                            <h4 class="text-5xl font-bold text-white mb-6"><i class="fa-solid fa-person-rifle mr-4 text-red-500"></i>Extremismo</h4>
+                            <p class="text-4xl leading-relaxed text-slate-200 font-medium">Masacres por Boko Haram y milicias Fulani (Nigeria). Presencia armada de Hezbollah e ISIS (Líbano/Siria).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 6: Categoría 6 y 7 -->
+        <section class="slide absolute inset-0 flex bg-slate-900">
+            <div class="absolute inset-0 w-full h-full z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-transparent z-10 w-full md:w-3/4"></div>
+                <div id="loader-img-mazo" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0 opacity-80">
+                    <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-4xl text-amber-500 mb-4"></i>
+                    <span class="text-slate-300 font-medium">IA Generando Imagen...</span>
+                </div>
+                <img id="img-mazo" class="w-full h-full object-cover object-right opacity-90 grayscale hidden" alt="Castigo Legal Mazo">
+            </div>
+
+            <div class="w-full md:w-2/3 flex flex-col justify-center p-12 md:p-24 z-10 h-full">
+                <div class="max-w-4xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
+                        <span class="text-2xl text-amber-400 uppercase tracking-widest font-bold drop-shadow-md">Categorías 06 y 07</span>
+                    </div>
+                    <h2 class="text-6xl md:text-7xl font-bold mb-10 title-font leading-tight text-white drop-shadow-lg">Castigo Legal y Tribus</h2>
+                    
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-6 bg-slate-900/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700/50">
+                            <i class="fa-solid fa-gavel text-5xl text-red-500 mt-2 drop-shadow-md"></i>
+                            <p class="text-4xl font-medium text-slate-100 leading-normal drop-shadow-md"><strong class="text-white">Apostasía:</strong> Pena de muerte o cárcel por el estado al convertirse del Islam.</p>
+                        </li>
+                        <li class="flex items-start gap-6 bg-slate-900/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700/50">
+                            <i class="fa-solid fa-mask text-5xl text-amber-500 mt-2 drop-shadow-md"></i>
+                            <p class="text-4xl font-medium text-slate-100 leading-normal drop-shadow-md"><strong class="text-white">Sociedades Secretas:</strong> Riesgo de ejecución ritual al seguir a Cristo (Ej. Sierra Leona).</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 7: Niveles de Alerta -->
+        <section class="slide absolute inset-0 flex-col items-center justify-center p-12 bg-slate-900">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-slate-900/75 z-10"></div>
+                <div id="loader-img-alerta" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-800 z-0 opacity-80">
+                    <i class="fa-solid fa-wand-magic-sparkles fa-bounce text-4xl text-red-500 mb-4"></i>
+                    <span class="text-slate-300 font-medium">IA Generando Imagen...</span>
+                </div>
+                <img id="img-alerta" class="w-full h-full object-cover z-0 opacity-80 hidden" alt="Alarma y Alambre de Púas">
+            </div>
+            <div class="z-10 max-w-7xl w-full text-center">
+                <span class="text-2xl text-amber-400 uppercase tracking-widest font-bold block mb-4 drop-shadow-md">Categoría 08</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white title-font mb-12 drop-shadow-lg">Categorización de Alerta</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left mt-8">
+                    <div class="bg-slate-900/90 p-10 rounded-3xl border-t-8 border-red-700 shadow-2xl backdrop-blur-md">
+                        <h3 class="text-5xl font-bold text-white mb-6 drop-shadow-md">Restringido</h3>
+                        <p class="text-4xl leading-relaxed text-slate-200 font-medium mb-8">Trabas estatales extremas a la Biblia, evangelismo y culto.</p>
+                        <span class="inline-block bg-red-900/80 text-white px-5 py-3 rounded-xl font-bold text-3xl shadow-md border border-red-500/30">Arabia Saudita</span>
+                    </div>
+                    
+                    <div class="bg-slate-900/90 p-10 rounded-3xl border-t-8 border-amber-600 shadow-2xl backdrop-blur-md">
+                        <h3 class="text-5xl font-bold text-white mb-6 drop-shadow-md">Hostiles</h3>
+                        <p class="text-4xl leading-relaxed text-slate-200 font-medium mb-8">Ataques terroristas, milicias y rechazo comunitario violento.</p>
+                        <div class="flex gap-4 flex-wrap">
+                            <span class="inline-block bg-amber-900/80 text-white px-5 py-3 rounded-xl font-bold text-3xl shadow-md border border-amber-500/30">Líbano</span>
+                            <span class="inline-block bg-amber-900/80 text-white px-5 py-3 rounded-xl font-bold text-3xl shadow-md border border-amber-500/30">Nigeria</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-10 rounded-3xl border-t-8 border-yellow-500 shadow-2xl backdrop-blur-md">
+                        <h3 class="text-5xl font-bold text-white mb-6 drop-shadow-md">Bajo Observación</h3>
+                        <p class="text-4xl leading-relaxed text-slate-200 font-medium mb-8">Influencia radical y violencia de sociedades secretas.</p>
+                        <div class="flex gap-3 flex-wrap">
+                            <span class="inline-block bg-yellow-900/60 text-white px-4 py-3 rounded-xl font-bold text-2xl shadow-md border border-yellow-500/30">Sierra Leona</span>
+                            <span class="inline-block bg-yellow-900/60 text-white px-4 py-3 rounded-xl font-bold text-2xl shadow-md border border-yellow-500/30">Jordania</span>
+                            <span class="inline-block bg-yellow-900/60 text-white px-4 py-3 rounded-xl font-bold text-2xl shadow-md border border-yellow-500/30">Yibuti</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Controles de Navegación y Contador -->
+    <div class="fixed bottom-8 right-8 z-50 flex items-center gap-6 bg-slate-800/80 p-4 rounded-full border border-slate-700 backdrop-blur-md shadow-2xl">
+        <button id="prevBtn" class="w-14 h-14 flex items-center justify-center bg-slate-700 hover:bg-blue-600 text-white rounded-full transition-colors focus:outline-none disabled:opacity-30 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-left text-2xl"></i>
+        </button>
+        
+        <div class="text-2xl font-bold font-mono text-slate-300 min-w-[4rem] text-center" id="counter">
+            1 / 5
+        </div>
+
+        <button id="nextBtn" class="w-14 h-14 flex items-center justify-center bg-slate-700 hover:bg-blue-600 text-white rounded-full transition-colors focus:outline-none disabled:opacity-30 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-right text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Lógica de la presentación en JavaScript -->
+    <script>
+        // --- INICIO GENERACIÓN DE IMÁGENES POR IA (Gemini) ---
+        const imageTasks = [
+            { id: 'img-portada', prompt: 'A highly dramatic and cinematic dark background with a very subtle illuminated cross in the distance. Dark red and amber tones, hyperrealistic, 8k, solemn.' },
+            { id: 'img-panorama', prompt: 'A dark, moody abstract map of Africa and the Middle East, glowing embers, dark slate background, 4k.' },
+            { id: 'img-cat1', prompt: 'Silhouette of a lonely person standing in a dark room with harsh shadows, conveying isolation. Cinematic lighting, dark dramatic.' },
+            { id: 'img-iglesia', prompt: 'An ancient stone building door securely locked with heavy chains and padlocks, dark and moody lighting, oppressive atmosphere, hyperrealistic.' },
+            { id: 'img-biblia', prompt: 'An old, worn antique book hidden in the shadows on a wooden table, illuminated by a single faint sliver of light. Cinematic, secretive, 4k.' },
+            { id: 'img-refugio', prompt: 'A camp of tents at night, dark silhouettes under a starry but moody sky, soft amber light from a small fire, cinematic, solemn.' },
+            { id: 'img-ruinas', prompt: 'Ruins of old buildings in a desert city, dark and solemn atmosphere, grayscale with slight amber tones, dramatic lighting, empty.' },
+            { id: 'img-mazo', prompt: 'A judges wooden gavel resting on a desk in a dark, shadowy courtroom. Oppressive atmosphere, dramatic lighting, high contrast.' },
+            { id: 'img-alerta', prompt: 'Barbed wire in the foreground with a blurry red alarm light glowing in the dark background, cinematic.' }
+        ];
+
+        async function fetchWithBackoff(prompt) {
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: { responseModalities: ['IMAGE'] }
+            };
+            const apiKey = ""; // API Key proveida dinámicamente
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image:generateContent?key=${apiKey}`;
+            
+            let delay = 1000;
+            for (let i = 0; i < 4; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API Error');
+                    const result = await response.json();
+                    const part = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
+                    if (part) {
+                        return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+                    }
+                } catch (e) {
+                    if (i === 3) return null; // Falló tras reintentos
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2; // Exponential backoff
+                }
+            }
+            return null;
+        }
+
+        async function generateAllImages() {
+            // Procesar en lotes de 3 para evitar bloqueos por límite de peticiones (Rate Limit)
+            const batchSize = 3;
+            for (let i = 0; i < imageTasks.length; i += batchSize) {
+                const batch = imageTasks.slice(i, i + batchSize);
+                await Promise.all(batch.map(async task => {
+                    const url = await fetchWithBackoff(task.prompt);
+                    const loader = document.getElementById('loader-' + task.id);
+                    const img = document.getElementById(task.id);
+                    
+                    if (url && img && loader) {
+                        img.src = url;
+                        img.classList.remove('hidden');
+                        loader.classList.add('hidden');
+                    } else if (loader) {
+                        loader.innerHTML = '<span class="text-red-400 font-bold"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Error</span>';
+                    }
+                }));
+            }
+        }
+
+        // Iniciar la generación al cargar el script
+        generateAllImages();
+        // --- FIN GENERACIÓN DE IMÁGENES ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('counter');
+            const progressBar = document.getElementById('progress-bar');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlider() {
+                // Actualizar clases de las diapositivas
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Actualizar estado de los botones
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+
+                // Actualizar contador numérico
+                counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+                // Actualizar barra de progreso superior
+                const progressPercentage = ((currentSlide) / (totalSlides - 1)) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            }
+
+            // Event Listeners para clics en botones
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Event Listeners para teclas (Izquierda / Derecha / Espacio)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevSlide();
+                }
+            });
+
+            // Soporte básico para deslizar en pantallas táctiles (Swipe)
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            document.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    nextSlide(); // Swipe izquierda = Siguiente
+                }
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    prevSlide(); // Swipe derecha = Anterior
+                }
+            }
+
+            // Inicializar la presentación
+            updateSlider();
+        });
+    </script>
+</body>
+</html>
